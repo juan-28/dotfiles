@@ -1,3 +1,16 @@
+# Neovim Python Config (Custom NvChad)
+
+| ![Screenshot 1](https://github.com/juan-28/.dotfiles/assets/55826125/429a9dc1-4d5a-4bf7-bf1e-55ebcdd227fb) | ![Screenshot 2](https://github.com/juan-28/.dotfiles/assets/55826125/315a875c-5272-496e-842e-80932e9d2aea) |
+|:--:|:--:|
+| Custom Neovim Startup Dashboard | Telescope Files and Live Grep |
+
+| ![Screenshot 3](https://github.com/juan-28/.dotfiles/assets/55826125/4bf072da-ffdf-493c-986c-ab5cb41b129b) | ![Screenshot 4](https://github.com/juan-28/.dotfiles/assets/55826125/dcf074ff-ac59-4f28-a1c1-bf949081923f) |
+|:--:|:--:|
+| Code editor with syntax highlighting and LSP features (Python) | Markdown Preview for Notetaking |
+
+---
+
+### There is more!
 
 ---
 
