@@ -5,6 +5,8 @@
 
 Guide to install and set up a simple python Neovim configuration from the `juan-28/.dotfiles` repository. Please follow these steps carefully!
 
+You can [click here](https://github.com/juan-28/.dotfiles/blob/main/nvim/README.md) to see more details on the features and plugins that come with this nvim configuration.
+
 ## Prerequisites
 
 - Git (for cloning the repository)
