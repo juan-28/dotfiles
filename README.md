@@ -91,4 +91,3 @@ Your contributions to improve this configuration are welcome. Please feel free t
 
 ---
 
-Thank you for using my Neovim configuration. Happy coding!
