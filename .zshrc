@@ -165,3 +165,4 @@ export PATH="/Users/pranavsukumaran/Desktop/Personal_dev/csv_viewer:$PATH"
 export PATH="/Users/pranavsukumaran/spotify-player/target/debug:$PATH"
 export PATH="$PATH:$(npm config get prefix)/bin"
 
+eval "$(direnv hook zsh)"
