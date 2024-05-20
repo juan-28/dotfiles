@@ -113,21 +113,6 @@ alias cht='~/.dotfiles/cht.sh'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/Users/pranavsukumaran/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/Users/pranavsukumaran/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-#         . "/Users/pranavsukumaran/opt/anaconda3/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/Users/pranavsukumaran/opt/anaconda3/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
-# # <<< conda initialize <<<
-
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/pranavsukumaran/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/pranavsukumaran/google-cloud-sdk/path.zsh.inc'; fi
@@ -155,14 +140,69 @@ alias -g grs='git rebase --skip'
 alias -g grv='git remote -v'
 alias -g gp='git fetch -p'
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias netflix='open https://mv-web.netlify.app'
 alias csv='csv.sh'
-alias ls='colorls'
 alias spotify='/Users/pranavsukumaran/spotify-player/target/debug/spotify_player'
 eval "$(zoxide init --cmd cd zsh)"
 export PATH="/Users/pranavsukumaran/Desktop/Personal_dev/csv_viewer:$PATH"
 export PATH="/Users/pranavsukumaran/spotify-player/target/debug:$PATH"
 export PATH="$PATH:$(npm config get prefix)/bin"
+eval "$(fzf --zsh)"
+
 
 eval "$(direnv hook zsh)"
+
+# -- fzf theme --
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
+  --color=fg:-1,bg:-1,hl:#5f87af \
+  --color=fg+:#d0d0d0,bg+:#262626,hl+:#5fd7ff \
+  --color=info:#afaf87,prompt:#d7005f,pointer:#af5fff \
+  --color=marker:#87ff00,spinner:#af5fff,header:#87afaf \
+  --border=rounded --border-label='Result:' --border-label-pos=2 --preview-window='border-rounded' \
+  --padding=0 --prompt='> ' --marker='>' --pointer='◆' \
+  --separator='─' --scrollbar='│' \
+  --preview-window 'right:50%'"
+# -- Use fd instead of fzf --
+
+export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
+
+# Use fd (https://github.com/sharkdp/fd) for listing path candidates.
+# - The first argument to the function ($1) is the base path to start traversal
+# - See the source code (completion.{bash,zsh}) for the details.
+_fzf_compgen_path() {
+  fd --hidden --exclude .git . "$1"
+}
+
+# Use fd to generate the list for directory completion
+_fzf_compgen_dir() {
+  fd --type=d --hidden --exclude .git . "$1"
+}
+
+
+source ~/fzf-git.sh/fzf-git.sh
+
+# --- eza ---
+alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
+
+# --- previews with fzf ---
+
+export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
+export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
+
+# Advanced customization of fzf options via _fzf_comprun function
+# - The first argument to the function is the name of the command.
+# - You should make sure to pass the rest of the arguments to fzf.
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    cd)           fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
+    export|unset) fzf --preview "eval 'echo $'{}"         "$@" ;;
+    ssh)          fzf --preview 'dig {}'                   "$@" ;;
+    *)            fzf --preview "bat -n --color=always --line-range :500 {}" "$@" ;;
+  esac
+}
+
