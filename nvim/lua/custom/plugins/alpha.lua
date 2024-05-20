@@ -9,6 +9,11 @@ return {
       local function configure()
         local dashboard = require 'alpha.themes.dashboard'
 
+        local function footer()
+          return '“We need diversity of thought in the world to face the new challenges.”'
+        end
+        dashboard.section.footer.val = footer
+
         -- Custom settings for the dashboard
         vim.api.nvim_set_hl(0, 'NeovimDashboardLogo1', { fg = '#0D47A1' }) -- Dark Blue
         vim.api.nvim_set_hl(0, 'NeovimDashboardLogo2', { fg = '#1976D2' }) -- Medium Blue
