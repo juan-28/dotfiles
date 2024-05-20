@@ -61,6 +61,7 @@ return {
           dashboard.button('g', '󰷾 ' .. ' Find text', ':Telescope live_grep <CR>'),
           dashboard.button('b', ' ' .. ' File browser', ':NvimTreeFocus <CR>'),
           dashboard.button('r', '󰄉 ' .. ' Recent files', ':Telescope oldfiles <CR>'),
+          dashboard.button('s', '󱔳 ' .. 'Restore Session for CWD ', '<cmd>SessionRestore<CR>'),
           dashboard.button('c', ' ' .. ' Config', ':e ~/.config/nvim/lua/custom/plugins/init.lua <CR>'),
           dashboard.button('l', '󰒲 ' .. ' Lazy', ':Lazy<CR>'),
           dashboard.button('q', ' ' .. ' Quit', ':qa<CR>'),

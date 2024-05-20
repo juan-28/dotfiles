@@ -52,3 +52,5 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- Keymap for nvimtree
 vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', '<leader>x', ':bd<CR>', { noremap = true, silent = true })
