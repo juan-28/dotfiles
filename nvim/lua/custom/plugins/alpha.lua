@@ -7,12 +7,8 @@ return {
     config = function()
       -- Define the configure function
       local function configure()
+        local alpha = require 'alpha'
         local dashboard = require 'alpha.themes.dashboard'
-
-        local function footer()
-          return '“We need diversity of thought in the world to face the new challenges.”'
-        end
-        dashboard.section.footer.val = footer
 
         -- Custom settings for the dashboard
         vim.api.nvim_set_hl(0, 'NeovimDashboardLogo1', { fg = '#0D47A1' }) -- Dark Blue
@@ -72,12 +68,22 @@ return {
           dashboard.button('q', ' ' .. ' Quit', ':qa<CR>'),
           -- Buttons customization
         }
+        alpha.setup(dashboard.config)
 
-        return dashboard.config
+        -- This will ensure the footer is updated after Neovim has fully started
+        vim.api.nvim_create_autocmd('User', {
+          callback = function()
+            local stats = require('lazy').stats()
+            local ms = math.floor(stats.startuptime * 100) / 100
+
+            dashboard.section.footer.val = '⚡ Neovim loaded ' .. stats.loaded .. '/' .. stats.count .. ' plugins in ' .. ms .. 'ms'
+            pcall(vim.cmd.AlphaRedraw)
+          end,
+        })
       end
 
       -- Setup alpha with the configure function
-      require('alpha').setup(configure())
+      configure()
     end,
   },
 }

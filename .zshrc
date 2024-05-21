@@ -186,6 +186,8 @@ source ~/fzf-git.sh/fzf-git.sh
 # --- eza ---
 alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
 
+# --- taskwarrior-tui
+alias tasks='taskwarrior-tui'
 # --- previews with fzf ---
 
 export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
