@@ -54,3 +54,35 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', '<leader>x', ':bd<CR>', { noremap = true, silent = true })
+
+-- keymap for bufferline
+-- Map <leader>Tab to cycle to the next buffer
+vim.api.nvim_set_keymap('n', '<leader><Tab>', ':BufferLineCycleNext<CR>', { noremap = true, silent = true })
+
+-- Set buffer navigation mappings using Bufferline
+vim.api.nvim_set_keymap('n', '<leader>1', '<cmd>lua require("bufferline").go_to(1, true)<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>2', '<cmd>lua require("bufferline").go_to(2, true)<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>3', '<cmd>lua require("bufferline").go_to(3, true)<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>4', '<cmd>lua require("bufferline").go_to(4, true)<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>5', '<cmd>lua require("bufferline").go_to(5, true)<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>6', '<cmd>lua require("bufferline").go_to(6, true)<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>7', '<cmd>lua require("bufferline").go_to(7, true)<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>8', '<cmd>lua require("bufferline").go_to(8, true)<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>9', '<cmd>lua require("bufferline").go_to(9, true)<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>$', '<cmd>lua require("bufferline").go_to(-1, true)<CR>', { noremap = true, silent = true })
+
+-- Function to switch from NvimTree or cycle through bufferline buffers
+local function switch_from_tree_or_cycle()
+  local buf_ft = vim.bo.filetype
+  if buf_ft == 'NvimTree' then
+    require('bufferline').go_to(1) -- Go to the first buffer if in NvimTree
+  else
+    require('bufferline').cycle(1) -- Cycle to the next buffer otherwise
+  end
+end
+
+_G.call_switch_from_tree_or_cycle = function()
+  switch_from_tree_or_cycle()
+end
+
+vim.api.nvim_set_keymap('n', '<leader><Tab>', '<cmd>lua call_switch_from_tree_or_cycle()<CR>', { noremap = true, silent = true })

@@ -1,14 +1,12 @@
 return {
-  -- Plugin setup for bufferline with dependencies
   {
     'akinsho/bufferline.nvim',
     version = '*', -- Always use the latest version
-    requires = {
-      { 'kyazdani42/nvim-web-devicons', opt = true }, -- Optionally loaded
-    },
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }, -- Optionally loaded
     after = 'nvim-web-devicons', -- Load after web-devicons
     config = function()
       local bufferline = require 'bufferline'
+      -- Setting up bufferline
       bufferline.setup {
         options = {
           mode = 'buffers', -- Use bufferline in 'buffers' mode
