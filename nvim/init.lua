@@ -11,6 +11,3 @@ require 'lazy-bootstrap'
 require 'lazy-plugins'
 
 vim.g.python3_host_prog = '~/.config/nvim/python-env/bin/python'
-
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et

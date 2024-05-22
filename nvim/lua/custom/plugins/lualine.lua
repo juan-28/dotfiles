@@ -12,40 +12,41 @@ return {
       yellow = '#FFDA7B',
       red = '#FF4A4A',
       fg = '#c3ccdc',
-      bg = '#112638',
-      inactive_bg = '#2c3043',
+      bg = nil,
+      inactive_bg = nil,
+      inner_bg = nil,
     }
 
     local my_lualine_theme = {
       normal = {
-        a = { bg = colors.blue, fg = colors.bg, gui = 'bold' },
-        b = { bg = colors.bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
+        a = { fg = colors.blue, bg = colors.inner_bg, gui = 'bold' },
+        b = { fg = colors.fg, bg = colors.inner_bg },
+        c = { fg = colors.fg, bg = colors.inner_bg },
       },
       insert = {
-        a = { bg = colors.green, fg = colors.bg, gui = 'bold' },
-        b = { bg = colors.bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
+        a = { fg = colors.green, bg = colors.inner_bg, gui = 'bold' },
+        b = { fg = colors.fg, bg = colors.inner_bg },
+        c = { fg = colors.fg, bg = colors.inner_bg },
       },
       visual = {
-        a = { bg = colors.violet, fg = colors.bg, gui = 'bold' },
-        b = { bg = colors.bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
+        a = { fg = colors.violet, bg = colors.inner_bg, gui = 'bold' },
+        b = { fg = colors.fg, bg = colors.inner_bg },
+        c = { fg = colors.fg, bg = colors.inner_bg },
       },
       command = {
-        a = { bg = colors.yellow, fg = colors.bg, gui = 'bold' },
-        b = { bg = colors.bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
+        a = { fg = colors.yellow, bg = colors.inner_bg, gui = 'bold' },
+        b = { fg = colors.fg, bg = colors.inner_bg },
+        c = { fg = colors.fg, bg = colors.inner_bg },
       },
       replace = {
-        a = { bg = colors.red, fg = colors.bg, gui = 'bold' },
-        b = { bg = colors.bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
+        a = { fg = colors.red, bg = colors.inner_bg, gui = 'bold' },
+        b = { fg = colors.fg, bg = colors.inner_bg },
+        c = { fg = colors.fg, bg = colors.inner_bg },
       },
       inactive = {
-        a = { bg = colors.inactive_bg, fg = colors.semilightgray, gui = 'bold' },
-        b = { bg = colors.inactive_bg, fg = colors.semilightgray },
-        c = { bg = colors.inactive_bg, fg = colors.semilightgray },
+        a = { fg = colors.fg, bg = colors.inactive_bg, gui = 'bold' },
+        b = { fg = colors.fg, bg = colors.inactive_bg },
+        c = { fg = colors.fg, bg = colors.inactive_bg },
       },
     }
 
