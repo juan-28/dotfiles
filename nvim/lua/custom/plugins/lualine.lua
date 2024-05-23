@@ -13,8 +13,8 @@ return {
       red = '#FF4A4A',
       fg = '#c3ccdc',
       bg = nil,
-      inactive_bg = nil,
-      inner_bg = nil,
+      inactive_bg = '#2c3043',
+      inner_bg = '#352a4a',
     }
 
     local my_lualine_theme = {
