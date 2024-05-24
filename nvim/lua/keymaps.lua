@@ -64,3 +64,22 @@ _G.call_switch_from_tree_or_cycle = function()
 end
 
 vim.keymap.set('n', '<leader><Tab>', '<cmd>lua call_switch_from_tree_or_cycle()<CR>', { noremap = true, silent = true })
+
+-- terminal
+vim.api.nvim_set_keymap('n', '<Leader>!', ':split | terminal<CR>', { noremap = true, silent = true, desc = 'Open terminal in Split' })
+
+-- tab management
+
+-- Keybinding to go to the next tab
+vim.api.nvim_set_keymap('n', '<leader>tn', ':tabnext<CR>', { noremap = true, silent = true })
+-- Keybinding to go to the previous tab
+vim.api.nvim_set_keymap('n', '<leader>tp', ':tabprevious<CR>', { noremap = true, silent = true })
+-- Keybinding to open a new tab
+vim.api.nvim_set_keymap('n', '<leader>to', ':tabnew<CR>', { noremap = true, silent = true })
+-- Keybinding to close the current tab
+vim.api.nvim_set_keymap('n', '<leader>tc', ':tabclose<CR>', { noremap = true, silent = true })
+-- Keybinding to go to a specific tab number
+vim.api.nvim_set_keymap('n', '<leader>t1', '1gt', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>t2', '2gt', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>t3', '3gt', { noremap = true, silent = true })
+-- Add more bindings as needed

@@ -1,63 +1,35 @@
 require('lazy').setup({
-
-  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
-
-  -- Use `opts = {}` to force a plugin to be loaded.
-  --
-  --  This is equivalent to:
-  --    require('Comment').setup({})
-
-  -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
-
-  -- modular approach: using `require 'path/name'` will
-  -- include a plugin definition from file lua/path/name.lua
-
+  require 'kickstart/plugins/comment-nvim',
+  require 'kickstart/plugins/vim-sleuth',
   require 'kickstart/plugins/gitsigns',
-
   require 'kickstart/plugins/which-key',
-
   require 'kickstart/plugins/telescope',
-
   require 'kickstart/plugins/lspconfig',
-
   require 'kickstart/plugins/conform',
-
   require 'kickstart/plugins/cmp',
-
   require 'kickstart/plugins/tokyonight',
-
   require 'kickstart/plugins/todo-comments',
-
   require 'kickstart/plugins/mini',
-
   require 'kickstart/plugins/treesitter',
+  require 'kickstart/plugins/indent_line',
+  require 'kickstart/plugins/autopairs',
+  require 'kickstart/plugins/alpha',
+  require 'kickstart/plugins/auto-session',
+  require 'kickstart/plugins/bufferline',
+  require 'kickstart/plugins/codesnap',
+  require 'kickstart/plugins/dressing',
+  require 'kickstart/plugins/lazygit',
+  require 'kickstart/plugins/lualine',
+  require 'kickstart/plugins/luarocks_neorg',
+  require 'kickstart/plugins/markdown',
+  require 'kickstart/plugins/nvim-tree',
+  require 'kickstart/plugins/vim-maximizer',
+  require 'kickstart/plugins/vimtex',
 
-  require 'kickstart.plugins.indent_line',
-
-  require 'kickstart.plugins.autopairs',
-
-  -- Extra plugins for a better overall configuration, add more *.lua plugins to the custom folder for more
-  { import = 'custom.plugins' },
+  -- { import = 'custom.plugins' },
 }, {
   ui = {
-    -- If you are using a Nerd Font: set icons to an empty table which will use the
-    -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
-    icons = vim.g.have_nerd_font and {} or {
-      cmd = '⌘',
-      config = '🛠',
-      event = '📅',
-      ft = '📂',
-      init = '⚙',
-      keys = '🗝',
-      plugin = '🔌',
-      runtime = '💻',
-      require = '🌙',
-      source = '📄',
-      start = '🚀',
-      task = '📌',
-      lazy = '💤 ',
-    },
+    icons = {},
   },
 })
 
