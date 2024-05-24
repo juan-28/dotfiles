@@ -5,14 +5,14 @@ function M.configure()
   local alpha = require 'alpha'
   local dashboard = require 'alpha.themes.dashboard'
 
-  -- Custom settings for the dashboard
-  vim.api.nvim_set_hl(0, 'NeovimDashboardLogo1', { fg = '#0D47A1' }) -- Dark Blue
-  vim.api.nvim_set_hl(0, 'NeovimDashboardLogo2', { fg = '#1976D2' }) -- Medium Blue
-  vim.api.nvim_set_hl(0, 'NeovimDashboardLogo3', { fg = '#64B5F6' }) -- Light Blue
-  vim.api.nvim_set_hl(0, 'NeovimDashboardLogo4', { fg = '#424242' }) -- Dark Gray
-  vim.api.nvim_set_hl(0, 'NeovimDashboardLogo5', { fg = '#757575' }) -- Medium Gray
-  vim.api.nvim_set_hl(0, 'NeovimDashboardLogo6', { fg = '#BDBDBD' }) -- Light Gray
+  vim.api.nvim_set_hl(0, 'NeovimDashboardLogo1', { fg = '#311B92' }) -- Indigo
+  vim.api.nvim_set_hl(0, 'NeovimDashboardLogo2', { fg = '#512DA8' }) -- Deep Purple
+  vim.api.nvim_set_hl(0, 'NeovimDashboardLogo3', { fg = '#673AB7' }) -- Deep Purple
+  vim.api.nvim_set_hl(0, 'NeovimDashboardLogo4', { fg = '#9575CD' }) -- Medium Purple
+  vim.api.nvim_set_hl(0, 'NeovimDashboardLogo5', { fg = '#B39DDB' }) -- Light Purple
+  vim.api.nvim_set_hl(0, 'NeovimDashboardLogo6', { fg = '#D1C4E9' }) -- Very Light Purple
 
+  -- Custom settings for the dashboard
   dashboard.section.header.type = 'group'
   dashboard.section.header.val = {
     {
@@ -54,7 +54,7 @@ function M.configure()
     dashboard.button('b', ' ' .. ' File browser', ':NvimTreeFocus <CR>'),
     dashboard.button('r', '󰄉 ' .. ' Recent files', ':Telescope oldfiles <CR>'),
     dashboard.button('s', '󱔳 ' .. 'Restore Session for CWD ', '<cmd>SessionRestore<CR>'),
-    dashboard.button('c', ' ' .. ' Config', ':e ~/.config/nvim/lua/custom/plugins/init.lua <CR>'),
+    dashboard.button('c', ' ' .. ' Config', ':e ~/.config/nvim/<CR>'),
     dashboard.button('l', '󰒲 ' .. ' Lazy', ':Lazy<CR>'),
     dashboard.button('q', ' ' .. ' Quit', ':qa<CR>'),
   }
