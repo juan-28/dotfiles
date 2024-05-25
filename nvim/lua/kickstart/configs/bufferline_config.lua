@@ -16,7 +16,7 @@ bufferline.setup {
     show_buffer_close_icons = true,
     show_close_icon = true,
     enforce_regular_tabs = false,
-    always_show_bufferline = true,
+    always_show_bufferline = false,
     offsets = { { filetype = 'NvimTree', text = 'File Explorer', highlight = 'Directory', separator = true } },
     color_icons = true,
     highlights = {
