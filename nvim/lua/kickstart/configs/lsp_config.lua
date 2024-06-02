@@ -108,8 +108,28 @@ capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp'
 --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
 --  - settings (table): Override the default settings passed when initializing the server.
 --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+
+local function get_python_path()
+  local venv = os.getenv 'VIRTUAL_ENV'
+  if venv then
+    return venv .. '/bin/python'
+  else
+    return '/opt/homebrew/bin/python3.11'
+  end
+end
+
 local servers = {
-  pyright = {},
+  pyright = {
+
+    settings = {
+
+      python = {
+        pythonPath = get_python_path(),
+      },
+    },
+  },
+  html = {},
+  cssls = {},
   -- rust_analyzer = {},
   -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
   --
@@ -118,7 +138,7 @@ local servers = {
   --
   -- But for many setups, the LSP (`tsserver`) will work just fine
   -- tsserver = {},
-  --
+  marksman = {},
 
   lua_ls = {
     -- cmd = {...},
