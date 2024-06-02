@@ -171,4 +171,8 @@ _fzf_comprun() {
     *)            fzf --preview "bat -n --color=always --line-range :500 {}" "$@" ;;
   esac
 }
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 
+
+POWERLEVEL9K_TRANSIENT_PROMPT=always
