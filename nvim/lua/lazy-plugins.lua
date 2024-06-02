@@ -27,7 +27,7 @@ require('lazy').setup({
   require 'kickstart/plugins/vimtex',
   require 'kickstart/plugins/vim-tmux',
 
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {
   ui = {
     icons = {},
