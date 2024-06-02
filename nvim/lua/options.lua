@@ -63,4 +63,13 @@ vim.opt.cursorline = false
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+vim.cmd [[
+  augroup ObsidianMarkdown
+    autocmd!
+    autocmd FileType markdown setlocal conceallevel=2
+  augroup END
+]]
 -- vim: ts=2 sts=2 sw=2 et
+
+vim.o.shell = '/bin/zsh'
+--
