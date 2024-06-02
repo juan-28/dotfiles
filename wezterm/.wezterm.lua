@@ -27,7 +27,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	local foreground = "#808080"
 
 	if tab.is_active then
-		background = "#2b2042"
+		background = "#20642B"
 		foreground = "#c0c0c0"
 	elseif hover then
 		background = "#3b3052"
@@ -59,7 +59,7 @@ return {
 	-- color_scheme = 'termnial.sexy',
 	color_scheme = "Catppuccin Mocha",
 	enable_tab_bar = true,
-	use_fancy_tab_bar = true,
+	use_fancy_tab_bar = false,
 	tab_bar_at_bottom = true,
 	font_size = 14.0,
 	font = wezterm.font("MesloLGLDZ Nerd Font Mono"),
