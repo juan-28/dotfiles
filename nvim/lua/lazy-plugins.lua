@@ -26,7 +26,7 @@ require('lazy').setup({
   require 'kickstart/plugins/vim-maximizer',
   require 'kickstart/plugins/vimtex',
   require 'kickstart/plugins/vim-tmux',
-
+  require 'kickstart/plugins/obsidian-nvim',
   { import = 'custom.plugins' },
 }, {
   ui = {
