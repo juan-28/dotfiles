@@ -1,0 +1,23 @@
+title: "Surya Pranav Sukumaran"
+description: "Personal blog and portfolio"
+theme: jekyll-theme-minimal
+markdown: kramdown
+baseurl: "/dotfiles" # Replace with your repository name
+url: "https://juan-28.github.io"
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Author information
+author:
+  name: "Surya Pranav Sukumaran"
+  email: "ps2pranav@example.com"
+  twitter: pranavsukumaran
+  github: juan-28
+
+# Social media links
+social_links:
+  linkedin: "https://www.linkedin.com/in/surya-pranav-s-a9064a140/"
+  github: "https://github.com/juan-28"
+  twitter: "https://x.com/PranavSukmaran"
+
